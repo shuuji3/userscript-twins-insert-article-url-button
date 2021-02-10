@@ -2,6 +2,12 @@
 
 筑波大学のtwinsに「個別のお知らせページを開くボタン」と「他人と共有できるURLをコピーするボタン」を追加するスクリプトです。
 
+## スクリーンショット
+
+![screenshot](screenshot.png)
+
+スクリーンショットのページは[パブリックに公開されているお知らせ](https://twins.tsukuba.ac.jp/campusweb/campussquare.do?_flowId=POW1200000-flow&_campus_new_portal=true&_action_id=displayPortletRequest&calledFlow=keiji&keijitype=4&genrecd=281&seqNo=2052)です。大学内の内部限定公開の情報は含まれません。
+
 ## 使用方法
 
 1. ブラウザの拡張機能Tampermonkeyをインストールします。
@@ -11,13 +17,7 @@
     - 「📋」ボタンをクリックすると、特定の記事だけが表示されるページのURLがクリップボードにコピーされます。
     - ⚠ **注意:** 「記事リンク」をクリックしてページを表示すると、URLが強制的に壊れたリンクに書き換えられてしまうため、URLを他の人と共有したい場合には「📋」ボタンを活用してください。
 
-## スクリーンショット
-
-![screenshot](screenshot.png)
-
-スクリーンショットのページは[パブリックに公開されているお知らせ](https://twins.tsukuba.ac.jp/campusweb/campussquare.do?_flowId=POW1200000-flow&_campus_new_portal=true&_action_id=displayPortletRequest&calledFlow=keiji&keijitype=4&genrecd=281&seqNo=2052)です。大学内の内部限定公開の情報は含まれません。
-
 ## ライセンス
 
-- GNU GPLv3
+- [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.ja.html)
 - ただし、スクリーンショットの画像ファイルを除きます。
