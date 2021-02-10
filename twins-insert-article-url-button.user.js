@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         twinsに「記事リンク」ボタンを追加するスクリプト
+// @name         筑波大学のtwinsに「記事リンク」ボタンを追加するスクリプト
 // @namespace    https://github.com/shuuji3/userscript-twins-insert-article-url-button
-// @version      0.1
-// @description  twinsに、他人と共有可能な記事URLにリンクされた「記事リンク」ボタンを追加します。
+// @version      0.2
+// @description  📋 筑波大学のtwinsに「個別のお知らせページを開くボタン」と「他人と共有できるURLをコピーするボタン」を追加します。
 // @author       TAKAHASHI Shuuji <shuuji3@gmail.com>
 // @match        https://twins.tsukuba.ac.jp/campusweb/*
 // @grant        none
@@ -23,7 +23,8 @@
     }
 
     /**
-     * 記事名をクリックしたときに初めて、iframeが非同期に読み込まれるため、pollingを行っています。
+     * ニュース記事へのURLを取得します。
+     * 記事名をクリックしたときに初めてiframeが非同期に読み込まれるため、pollingを行っています。
      */
     async function getArticleURL() {
         let buttonInserted = false;
@@ -69,6 +70,31 @@
         return button
     }
 
+    function isClipboardJSLoaded() {
+        try {
+            // Before loaded clipboard.js, instantiate Clipboard should be failed.
+            new Clipboard();
+        } catch (e) {
+            if (e.name === 'TypeError') {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * clipboard.jsを読み込んで初期化します。
+     */
+    async function initClipboardJS() {
+        const script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js';
+        document.body.appendChild(script);
+        while (!isClipboardJSLoaded()) {
+            await sleep(100);
+        }
+        new Clipboard('.btn');
+    }
+
     // main
     async function main() {
         const url = await getArticleURL();
@@ -79,12 +105,7 @@
         target.parentNode.insertBefore(linkButton, target);
         target.parentNode.insertBefore(copyButton, target);
 
-        // Initialize Clipboard.js
-        const script = document.createElement('script');
-        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js';
-        document.body.appendChild(script);
-        await sleep(1000); // darty...
-        new Clipboard('.btn');
+        initClipboardJS();
     }
 
     await main();
