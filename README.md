@@ -10,7 +10,7 @@
 
 ## 使用方法
 
-1. ブラウザの拡張機能Tampermonkeyをインストールします。
+1. ブラウザの拡張機能[Tampermonkey](https://www.tampermonkey.net/)をインストールします。
 1. [twins-insert-article-url-button.user.js](https://github.com/shuuji3/userscript-twins-insert-article-url-button/raw/main/twins-insert-article-url-button.user.js)をクリックすると、スクリプトのインストール画面が表示されます。コードの内容を確認してインストールします。
 1. 特定のお知らせを表示すると、上部に「記事リンク」ボタンと「📋」ボタンが追加されます。
     - 「記事リンク」ボタンをクリックすると、新規タブで特定の記事だけが表示されるページが表示されます。
