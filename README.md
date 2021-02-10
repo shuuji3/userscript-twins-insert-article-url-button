@@ -21,3 +21,7 @@
 
 - [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.ja.html)
 - ただし、スクリーンショットの画像ファイルを除きます。
+
+## 関連リポジトリ
+
+- [shuuji3/twins-notification: 📡 筑波大学の Twins の掲示を通知するプログラム](https://github.com/shuuji3/twins-notification)
